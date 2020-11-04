@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Xml.Linq;
 
@@ -103,5 +104,31 @@ namespace HW2
         {
             return ((IEnumerable)this).GetEnumerator();
         }
+        public T this[int index]
+        {
+            get
+            {
+                Node<T> node = this.head;
+                int i = 0;
+                T something;
+                if (index < 0 || index >= this.size)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                while(i <= index)
+                {
+                    something = node.Element;
+                    node = node.Next;
+                    if (i == index)
+                    {
+                        return something;
+                    }
+                    i++;
+                }
+                return default;
+                
+            }
+        }
+        
     }
 }

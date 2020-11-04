@@ -23,6 +23,26 @@ namespace HW2
                 Console.WriteLine(m.Name+" "+ m.Age);
             }
 
+            Console.WriteLine(minionsList[2].Name);
+
+            Stack<Minions> stack = new Stack<Minions>();
+  
+            stack.Add(minion1);
+            stack.Add(minion2);
+            stack.Add(minion3);
+            stack.Add(minion4);
+            stack.Remove();
+            Console.WriteLine(stack.IsEmpty());
+            Console.WriteLine(stack.Size());
+            foreach(var s in stack)
+            {
+                Console.WriteLine(s.Name) ;
+            }
+
+            MinionsComparator minionsComparator = new MinionsComparator();
+
+            Console.WriteLine(minion1.CompareTo(minion2));
+            Console.WriteLine(minionsComparator.Compare(minion1, minion2));
         }
     }
 }
